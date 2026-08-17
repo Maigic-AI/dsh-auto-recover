@@ -1,0 +1,10 @@
+# dsh-auto-recover — composition snippet.
+#
+# This plugin is process-global (it watches every agent's quota errors and
+# resumes across sessions), so add this row to the HOST composition — one
+# instance for the process — NOT to an agent preset.
+#
+# Example row (adjust `id` to taste; `name` is the installed npm package name):
+#
+# - id: auto-recover
+#   name: dsh-auto-recover
