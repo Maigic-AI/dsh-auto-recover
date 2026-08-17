@@ -31,22 +31,44 @@ The plugin resolves API keys through the harness credential service (`ctx.creden
 
 ## Install
 
-1. Install the package into the harness's `node_modules` (the Loader resolves plugins by package name):
+### 1. Install the package
 
-   ```bash
-   npm install dsh-auto-recover
-   # or, from a git checkout:
-   # npm install <path-or-git-url>
-   ```
+Published on npm:
 
-2. Add one row to the **host composition** (process-global, one instance — see `cordis.snippet.yml`):
+```bash
+cd "$DSH_HOME/profiles/web"   # or your profile directory
+pnpm add @maigic/dsh-auto-recover
+```
 
-   ```yaml
-   - id: auto-recover
-     name: dsh-auto-recover
-   ```
+From a git checkout (no npm publish needed):
 
-3. Restart the harness (or reload the composition).
+```bash
+cd "$DSH_HOME/profiles/web"
+pnpm add github:Maigic-AI/dsh-auto-recover
+```
+
+Local development (link the repo into the profile's `node_modules`):
+
+```bash
+# macOS / Linux
+ln -s /path/to/dsh-auto-recover "$DSH_HOME/profiles/node_modules/dsh-auto-recover"
+# Windows (junction, no admin needed)
+New-Item -ItemType Junction -Path "$env:DSH_HOME\profiles\node_modules\dsh-auto-recover" -Target "D:\path\to\dsh-auto-recover"
+```
+
+### 2. Add the composition row
+
+Edit the profile's patch file `$DSH_HOME/profiles/<name>/cordis.patch.yml` (or the home-level `$DSH_HOME/cordis.patch.yml`) and add:
+
+```yaml
+- insert:
+    - id: auto-recover
+      name: '@maigic/dsh-auto-recover'
+```
+
+### 3. Reload
+
+The profile watcher applies `cordis.patch.yml` changes live; otherwise restart the harness.
 
 ## Usage
 

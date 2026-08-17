@@ -1,5 +1,5 @@
 {
-  "name": "dsh-auto-recover",
+  "name": "@maigic/dsh-auto-recover",
   "version": "0.1.0",
   "description": "DeepSeek Harness Host plugin: automatically resume quota-limited sessions once the provider quota recovers (DeepSeek balance, z.ai / GLM coding plan).",
   "type": "module",
@@ -11,9 +11,21 @@
   "files": [
     "lib",
     "README.md",
+    "README.zh.md",
     "cordis.snippet.yml"
   ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Maigic-AI/dsh-auto-recover.git"
+  },
+  "homepage": "https://github.com/Maigic-AI/dsh-auto-recover#readme",
+  "bugs": {
+    "url": "https://github.com/Maigic-AI/dsh-auto-recover/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "deepseek-harness",
     "dsh",

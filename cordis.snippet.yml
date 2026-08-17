@@ -1,10 +1,11 @@
 # dsh-auto-recover — composition snippet.
 #
 # This plugin is process-global (it watches every agent's quota errors and
-# resumes across sessions), so add this row to the HOST composition — one
-# instance for the process — NOT to an agent preset.
+# resumes across sessions), so mount it in the profile/host composition —
+# NOT in an agent preset.
 #
-# Example row (adjust `id` to taste; `name` is the installed npm package name):
-#
-# - id: auto-recover
-#   name: dsh-auto-recover
+# Add this to $DSH_HOME/profiles/<name>/cordis.patch.yml
+# (or the home-level $DSH_HOME/cordis.patch.yml):
+- insert:
+    - id: auto-recover
+      name: '@maigic/dsh-auto-recover'
