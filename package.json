@@ -1,6 +1,6 @@
 {
   "name": "@maigic/dsh-auto-recover",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "DeepSeek Harness Host plugin: automatically resume quota-limited sessions once the provider quota recovers (DeepSeek balance, z.ai / GLM coding plan).",
   "type": "module",
   "main": "lib/index.js",
